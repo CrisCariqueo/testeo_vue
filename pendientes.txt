@@ -1,5 +1,5 @@
 Julio:
-1- Hacer que el componente SideBar reaccione a la ruta desde donde es invocada para poder agregar la barra lateral roja distintiva
+1- Hacer componente foto de perfil
 
 
 

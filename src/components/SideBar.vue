@@ -2,43 +2,85 @@
     <input type="checkbox" id="sidebar-click">
         <label class="sidebar" for="sidebar-click">
             <ul>
-                <li><a href="library.html" class="sidebar-button"><img src="../assets/sidebar-icons/library-icon.png" alt="Libreria"><h1>Libreria</h1></a></li>
-                <li><a href="inventory.html" class="sidebar-button"><img src="../assets/sidebar-icons/inventory-icon.png" alt=""><h1>Inventario</h1></a></li>
-                <li><a href="forum.html" class="sidebar-button"><img src="../assets/sidebar-icons/forum-icon.png" alt=""><h1>Foro</h1></a></li>
-                <li><a href="rules.html" class="sidebar-button"><img src="../assets/sidebar-icons/rules-icon.png" alt=""><h1>Reglas</h1></a></li>
-                <li><a href="glossary.html" class="sidebar-button"><img src="../assets/sidebar-icons/glossary-icon.png" alt=""><h1>Glosario</h1></a></li>
+                <li><router-link to="/" class="sidebar-button" :class="{ active: isActive('/') }">
+                    <img src="../assets/sidebar-icons/library-icon.png" alt="Libreria">
+                    <h1>Libreria</h1>
+                </router-link></li>
+                <li><router-link to="/" class="sidebar-button" :class="{ active: isActive('/inventario') }">
+                    <img src="../assets/sidebar-icons/inventory-icon.png" alt="">
+                    <h1>Inventario</h1>
+                </router-link></li>
+                <li><router-link to="/" class="sidebar-button" :class="{ active: isActive('/foro') }">
+                    <img src="../assets/sidebar-icons/forum-icon.png" alt="">
+                    <h1>Foro</h1>
+                </router-link></li>
+                <li><router-link to="/" class="sidebar-button" :class="{ active: isActive('/reglas') }">
+                    <img src="../assets/sidebar-icons/rules-icon.png" alt="">
+                    <h1>Reglas</h1>
+                </router-link></li>
+                <li><router-link to="/" class="sidebar-button" :class="{ active: isActive('/glosario') }">
+                    <img src="../assets/sidebar-icons/glossary-icon.png" alt="">
+                    <h1>Glosario</h1>
+                </router-link></li>
+                <li><router-link to="/profile" class="sidebar-button" :class="{ active: isActive('/profile') }">
+                    <img src="../assets/sidebar-icons/profile-icon.png" alt="">
+                    <h1>Perfil</h1>
+                    </router-link>
+                </li>
             </ul>
 
-            <a href="profile.html" class="sidebar-button active"><img src="../assets/sidebar-icons/profile-icon.png" alt=""><h1>Perfil</h1></a>
-    </label>
+            
+        </label>
 </template>
 
 <script>
-
+export default {
+    computed: {
+        isActive() {
+            return (route) => this.$route.path === route;
+        }
+    }
+}
 </script>
 
 <style>
+
+    :root {
+        --primary-background-color: #2c2c2e;
+        --secondary-background-color: #373739;
+        --primary-text-color: #A40000;
+        --secondary-text-color: #CB0000;
+        --primary-border-color: #E3CFCF;
+        --secondary-border-color: #FFEBEB;
+        --font-style: 'Open Sans', sans-serif;
+        --test-border-color: #008000;
+    }
+
     .sidebar {
         z-index: 10;
         display: block;
         width: 123px;
-        background-color: #2C2C2E;
-        height: 94vh;
+        height: calc(100%);
+        min-height: 400px;
+        background-color: var(--primary-background-color);
         display: flex;
         position: fixed;
-        float: left;
         top: 0px;
+        left: 0px;
         flex-direction: column;
         justify-content: space-between;
         overflow: hidden;
         padding: 20px 0;
-        transition: 1s;
-        border-right: 5px solid #E3CFCF;
+        transition: 0.5s;
+        border-right: 5px solid var(--primary-border-color);
+        /*border: 4px solid var(--test-border-color);*/
     }
+
     :checked + .sidebar {
-        transition: 1s;
+        transition: 0.5s;
         width: 300px;
     }
+
     #sidebar-click {
         display: none;
     }
@@ -46,7 +88,11 @@
     .sidebar ul {
         list-style: none;
         padding-left: 0;
-        height: fit-content;
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1; 
+        justify-content: flex-start; /* Make sure the icons are at the top */
     }
 
     .sidebar ul li {
@@ -55,21 +101,16 @@
         margin-bottom: 40px;
     }
 
+    .sidebar ul li:last-child{
+        margin-top: auto;
+        margin-bottom: 60px;
+    }
+
     .sidebar h1 {
         position: relative;
         left: 130px;
         top: -70px;
-        color: #E3CFCF;
-    }
-
-    .sidebar ul li a {
-        height: 44px;
-    }
-
-    .sidebar ul li a img {
-        width: auto;
-        height: auto;
-        right: 0px;
+        color: var(--primary-text-color);
     }
 
     .sidebar a {
@@ -83,11 +124,11 @@
     }
 
     .sidebar-button.active img{
-        border-left: 5px solid #A40000;
+        border-left: 5px solid var(--primary-text-color);
     }
 
-    .sidebar-button img:hover{
-        filter: brightness(125%);
+    .sidebar-button img:hover, h1:hover{
+        filter: brightness(150%);
     }
 
 </style>
