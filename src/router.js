@@ -1,7 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router" 
-import HomePage from "./src/components/AppHome.vue"
-import RandomPage  from './src/components/about-page.vue';
-import ProfilePage from "@/components/Profile-page.vue";
+import HomePage from "./views/AppHome.vue"
+import RandomPage  from './views/about-page.vue';
+import ProfilePage from "@/views/Profile-page.vue";
 
 
 const links = [

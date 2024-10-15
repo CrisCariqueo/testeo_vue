@@ -124,7 +124,8 @@ export default {
     }
 
     .sidebar-button.active img{
-        border-left: 5px solid var(--primary-text-color);
+        border-left: 6px solid var(--primary-text-color);
+
     }
 
     .sidebar-button img:hover, h1:hover{

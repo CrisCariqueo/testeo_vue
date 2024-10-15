@@ -3,15 +3,13 @@
         <SideBar />
     </aside>
     <div>
-        <h1>Welcome to the Home Page</h1>
+        <h1>Welcome to the Profile</h1>
     </div>
-    <button>
-        <router-link to="/about">Go to About Page</router-link>
-    </button>
+    
 </template>
 
 <script setup>
-import SideBar from './SideBar.vue';
+import SideBar from '../common/SideBar.vue';
 
 
 </script>
