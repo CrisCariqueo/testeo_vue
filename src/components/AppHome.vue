@@ -1,13 +1,18 @@
 <template>
+    <aside>
+        <SideBar />
+    </aside>
     <div>
         <h1>Welcome to the Home Page</h1>
     </div>
     <button>
-        <router-link to="/about/sex/coito/hola">Go to About Page</router-link>
+        <router-link to="/about">Go to About Page</router-link>
     </button>
 </template>
 
-<script>
+<script setup>
+import SideBar from './SideBar.vue';
+
 
 </script>
 
