@@ -2,9 +2,7 @@
     <div>
         <h1>Welcome to the Home Page</h1>
     </div>
-    <button>
-        <router-link to="/about/sex/coito/hola">Go to About Page</router-link>
-    </button>
+    <router-link to="/about">Go to About Page</router-link>
 </template>
 
 <script>
